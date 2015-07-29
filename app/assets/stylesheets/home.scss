@@ -9,3 +9,22 @@
     }
   }
 }
+
+.eye-home-callout {
+  padding-top: 75px !important;
+  padding-bottom: 75px !important;
+  background-color: #e74c3c !important;
+
+  > .container {
+    > h1.ui.header {
+      font-size: 3em;
+      color: #ecf0f1;
+    }
+
+    > h2.ui.header {
+      font-weight: 100;
+      color: #c0392b;
+      font-size: 2em;
+    }
+  }
+}

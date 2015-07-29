@@ -1,0 +1,77 @@
+{
+  "MiniTest": {
+    "coverage": {
+      "/Users/piercemoore/Repos/eye/test/controllers/home_controller_test.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/piercemoore/Repos/eye/test/models/user_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/piercemoore/Repos/eye/app/controllers/dashboard_controller.rb": [
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/piercemoore/Repos/eye/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/Users/piercemoore/Repos/eye/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/piercemoore/Repos/eye/app/helpers/dashboard_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/piercemoore/Repos/eye/app/helpers/home_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/piercemoore/Repos/eye/app/helpers/users_helper.rb": [
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/Users/piercemoore/Repos/eye/app/controllers/home_controller.rb": [
+        1,
+        1,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1438208797
+  }
+}

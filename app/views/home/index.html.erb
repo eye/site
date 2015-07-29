@@ -1,3 +1,18 @@
-<div style="display: block; text-align: center;">
-  <%= image_tag "eye-600x600.png" %>
+<div class="ui vertical center aligned segment eye-home-callout">
+  <div class="ui text container">
+    <h1 class="ui center aligned header">Server Monitoring for Everyone</h1>
+    <h2 class="ui center aligned header">
+      Welcome to Eye. It's better here.
+      <p></p>
+      <a class="ui huge primary button">
+        Get Started
+        <i class="right arrow icon"></i>
+      </a>
+    </h2>
+
+    <% if user_signed_in? %>
+      <pre><%= JSON.pretty_generate(JSON.parse(current_user.to_json)) %></pre>
+    <% end %>
+  </div>  
 </div>
+

@@ -9,74 +9,52 @@
 </head>
 <body class="pushable">
   <div class="pusher">
-    <div class="ui inverted vertical masthead center aligned segment">
-      <div class="ui container eye-header">
-        <div class="ui large secondary inverted pointing menu">
-          <!-- <a class="toc item">
-            <i class="sidebar icon"></i>
-          </a> -->
-          <a class="active item">Home</a>
-          <a class="item">Pricing</a>
-          <a class="item">About</a>
+    <div class="ui vertical center aligned segment eye-header">
+      <div class="ui container">
+        <div class="ui text menu">
+          <div class="item">
+            <%= image_tag "eye-600x600.png", class: 'logo-main' %>
+          </div>
 
-          <div class="right item">
-            <% if user_signed_in? %>
-              <div class="ui inline dropdown inverted blue button">
-                <div class="text">
+          <div class="ui right item">
+            <a class="active item">Home</a>
+            <a class="item">Pricing</a>
+            <a class="item">About</a>
+
+            <div class="eye-header-user-block">            
+              <% if user_signed_in? %>
+                <div class="ui right dropdown item">
                   <img class="ui avatar image" src="<%= current_user.image %>" />
                   <%= current_user.name %>
-                </div>
-                <i class="dropdown icon"></i>
-                <div class="menu">
-                  <div class="item">
-                    <i class="settings icon"></i>
-                    Profile Settings
+
+                  <i class="dropdown icon"></i>
+
+                  <div class="menu">
+                    <div class="item">
+                      <i class="settings icon"></i>
+                      Profile Settings
+                    </div>
+                    <%= link_to destroy_user_session_path, method: :delete, class: 'item' do %>
+                      <%= semantic_icon('sign out') %>
+                      Sign Out
+                    <% end %>
                   </div>
-                  <%= link_to destroy_user_session_path, method: :delete, class: 'item' do %>
-                    <%= semantic_icon('sign out') %>
-                    Sign Out
-                  <% end %>
-                  <!-- <a class="item" href="<%= destroy_user_session_path %>">
-                    <i class="sign out icon"></i>
-                    Sign Out
-                  </a> -->
                 </div>
-              </div>
-            <% else %>
-              <a class="ui inverted button">Log In</a>
-              <%= link_to "Sign up with GitHub", user_omniauth_authorize_path(:github), class: 'ui inverted button' %>
-              <%= link_to "GitHub Auth Callback", user_omniauth_callback_path(:github), class: 'ui inverted button' %>
-              <!-- <a class="ui inverted button" href="<% user_omniauth_authorize_path(:github) %>">Sign Up</a> -->
-            <% end %>
+              <% else %>
+                <%= link_to "Sign up with GitHub", user_omniauth_authorize_path(:github), class: 'ui blue inverted button' %>
+                <!-- <%= link_to "GitHub Auth Callback", user_omniauth_callback_path(:github), class: 'ui inverted button' %> -->
+                <!-- <a class="ui inverted button" href="<% user_omniauth_authorize_path(:github) %>">Sign Up</a> -->
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="ui text container eye-home-callout">
-        <h1 class="ui inverted header">Server Monitoring for Everyone</h1>
-        <h2 class="ui inverted header">
-          Welcome to Eye. It's better here.
-          <p></p>
-          <a class="ui huge primary button">
-            Get Started
-            <i class="right arrow icon"></i>
-          </a>
-        </h2>
-
-        <hr />
-
-        <p>Authorize: <%= user_omniauth_authorize_path(:github) %></p>
-        <p>Callback: <%= user_omniauth_callback_path(:github) %></p>
-
-        <pre><%= current_user.inspect %></pre>
       </div>
 
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </div>
+
+    <%= yield %>
   </div>
-
-<%= yield %>
-
 </body>
 </html>
