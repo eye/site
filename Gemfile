@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'dotenv-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -34,6 +35,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rufus-scheduler'
 gem 'net-ping'
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
+gem 'devise'
+gem "omniauth-github"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

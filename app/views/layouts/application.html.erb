@@ -4,9 +4,53 @@
   <title>Eye</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= favicon_link_tag %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="pushable">
+  <div class="pusher">
+    <div class="ui inverted vertical masthead center aligned segment">
+      <div class="ui container eye-header">
+        <div class="ui large secondary inverted pointing menu">
+          <!-- <a class="toc item">
+            <i class="sidebar icon"></i>
+          </a> -->
+          <a class="active item">Home</a>
+          <a class="item">Pricing</a>
+          <a class="item">About</a>
+
+          <div class="right item">
+            <a class="ui inverted button">Log In</a>
+            <%= link_to "Sign up with GitHub", user_omniauth_authorize_path(:github), class: 'ui inverted button' %>
+            <%= link_to "GitHub Auth Callback", user_omniauth_callback_path(:github), class: 'ui inverted button' %>
+            <!-- <a class="ui inverted button" href="<% user_omniauth_authorize_path(:github) %>">Sign Up</a> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="ui text container eye-home-callout">
+        <h1 class="ui inverted header">Server Monitoring for Everyone</h1>
+        <h2 class="ui inverted header">
+          Welcome to Eye. It's better here.
+          <p></p>
+          <a class="ui huge primary button">
+            Get Started
+            <i class="right arrow icon"></i>
+          </a>
+        </h2>
+
+        <hr />
+
+        <p>Authorize: <%= user_omniauth_authorize_path(:github) %></p>
+        <p>Callback: <%= user_omniauth_callback_path(:github) %></p>
+
+        <pre><%= current_user.inspect %></pre>
+      </div>
+
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
+  </div>
 
 <%= yield %>
 

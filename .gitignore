@@ -18,3 +18,5 @@ logs
 /log/*
 !/log/.keep
 /tmp
+
+.env
