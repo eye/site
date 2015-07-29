@@ -2,15 +2,6 @@ require 'json'
 
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def github
-    # auth = request.env["omniauth.auth"]
-    # info = {
-    #   provider: auth.provider,
-    #   uid: auth.uid,
-    #   email: auth.info.email,
-    #   name: auth.info.name,
-    #   image: auth.info.image
-    # }
-    # raise info.inspect
     @user = User.from_omniauth(request.env["omniauth.auth"])
 
     if @user.persisted?

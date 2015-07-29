@@ -20,10 +20,30 @@
           <a class="item">About</a>
 
           <div class="right item">
-            <a class="ui inverted button">Log In</a>
-            <%= link_to "Sign up with GitHub", user_omniauth_authorize_path(:github), class: 'ui inverted button' %>
-            <%= link_to "GitHub Auth Callback", user_omniauth_callback_path(:github), class: 'ui inverted button' %>
-            <!-- <a class="ui inverted button" href="<% user_omniauth_authorize_path(:github) %>">Sign Up</a> -->
+            <% unless user_signed_in? %>
+              <a class="ui inverted button">Log In</a>
+              <%= link_to "Sign up with GitHub", user_omniauth_authorize_path(:github), class: 'ui inverted button' %>
+              <%= link_to "GitHub Auth Callback", user_omniauth_callback_path(:github), class: 'ui inverted button' %>
+              <!-- <a class="ui inverted button" href="<% user_omniauth_authorize_path(:github) %>">Sign Up</a> -->
+            <% else %>
+              <div class="ui inline dropdown inverted blue button">
+                <div class="text">
+                  <img class="ui avatar image" src="<%= current_user.image %>" />
+                  <%= current_user.name %>
+                </div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                  <div class="item">
+                    <i class="settings icon"></i>
+                    Profile Settings
+                  </div>
+                  <div class="item">
+                    <i class="sign out icon"></i>
+                    Sign Out
+                  </div>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
