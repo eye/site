@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   #   delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   # end
 
+  get '/dashboard', to: 'dashboard#index', as: 'dashboard'
   get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

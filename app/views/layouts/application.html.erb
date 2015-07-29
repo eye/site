@@ -37,10 +37,14 @@
                     <i class="settings icon"></i>
                     Profile Settings
                   </div>
-                  <div class="item">
+                  <%= link_to destroy_user_session_path, method: :delete, class: 'item' do %>
+                    <%= semantic_icon('sign out') %>
+                    Sign Out
+                  <% end %>
+                  <!-- <a class="item" href="<%= destroy_user_session_path %>">
                     <i class="sign out icon"></i>
                     Sign Out
-                  </div>
+                  </a> -->
                 </div>
               </div>
             <% end %>
