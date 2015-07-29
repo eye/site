@@ -8,6 +8,10 @@
     <a href="https://codeclimate.com/github/eye/site/coverage">
       <img src="https://codeclimate.com/github/eye/site/badges/coverage.svg" />
     </a>
+    
+    <a href="https://codeship.com/projects/93858">
+      <img src="https://codeship.com/projects/e49ad990-184c-0133-4b40-067074303474/status?branch=master" />
+    </a>
   </span> <br /><br />
   <span>
     Main web application for the Eye monitoring service
