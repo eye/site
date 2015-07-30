@@ -38,7 +38,6 @@ gem 'net-ping'
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 gem 'devise'
 gem 'omniauth-github'
-gem 'coveralls', require: false
 
 
 group :development, :test do
@@ -55,3 +54,7 @@ group :development, :test do
   gem 'whenever', :require => false
 end
 
+group :test do
+  gem 'coveralls', require: false
+  gem "codeclimate-test-reporter", require: nil
+end
