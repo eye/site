@@ -2,59 +2,69 @@
 <html>
 <head>
   <title>Eye</title>
+  <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.7/semantic.min.css' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.7/semantic.min.js' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= favicon_link_tag %>
   <%= csrf_meta_tags %>
 </head>
 <body class="pushable">
   <div class="pusher">
-    <div class="ui vertical center aligned segment eye-header">
-      <div class="ui container">
-        <div class="ui text menu">
-          <div class="item">
-            <%= image_tag "eye-600x600.png", class: 'logo-main' %>
-          </div>
+    <div class="ui grid">
+      <div class="row">
+        <div class="column">
+          <div class="ui vertical center aligned segment eye-header">
+            <div class="ui container">
+              <div class="ui text menu">
+                <div class="item">
+                  <%= image_tag "eye-600x600.png", class: 'logo-main' %>
+                </div>
 
-          <div class="ui right item">
-            <a class="active item">Home</a>
-            <a class="item">Pricing</a>
-            <a class="item">About</a>
+                <div class="ui right item">
+                  <a class="active item">Home</a>
+                  <a class="item">Pricing</a>
+                  <a class="item">About</a>
 
-            <div class="eye-header-user-block">            
-              <% if user_signed_in? %>
-                <div class="ui right dropdown item">
-                  <img class="ui avatar image" src="<%= current_user.image %>" />
-                  <%= current_user.name %>
+                  <div class="eye-header-user-block">
+                    <% if user_signed_in? %>
+                      <div class="ui right dropdown item">
+                        <img class="ui avatar image" src="<%= current_user.image %>" />
+                        <%= current_user.name %>
 
-                  <i class="dropdown icon"></i>
+                        <i class="dropdown icon"></i>
 
-                  <div class="menu">
-                    <div class="item">
-                      <i class="settings icon"></i>
-                      Profile Settings
-                    </div>
-                    <%= link_to destroy_user_session_path, method: :delete, class: 'item' do %>
-                      <%= semantic_icon('sign out') %>
-                      Sign Out
+                        <div class="menu">
+                          <div class="item">
+                            <i class="settings icon"></i>
+                            Profile Settings
+                          </div>
+                          <%= link_to destroy_user_session_path, method: :delete, class: 'item' do %>
+                            <%= semantic_icon('sign out') %>
+                            Sign Out
+                          <% end %>
+                        </div>
+                      </div>
+                    <% else %>
+                      <%= link_to "Sign up with GitHub", user_omniauth_authorize_path(:github), class: 'ui blue inverted button' %>
+                      <!-- <%= link_to "GitHub Auth Callback", user_omniauth_callback_path(:github), class: 'ui inverted button' %> -->
+                      <!-- <a class="ui inverted button" href="<% user_omniauth_authorize_path(:github) %>">Sign Up</a> -->
                     <% end %>
                   </div>
                 </div>
-              <% else %>
-                <%= link_to "Sign up with GitHub", user_omniauth_authorize_path(:github), class: 'ui blue inverted button' %>
-                <!-- <%= link_to "GitHub Auth Callback", user_omniauth_callback_path(:github), class: 'ui inverted button' %> -->
-                <!-- <a class="ui inverted button" href="<% user_omniauth_authorize_path(:github) %>">Sign Up</a> -->
-              <% end %>
+              </div>
             </div>
+
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
           </div>
         </div>
       </div>
-
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
     </div>
 
-    <%= yield %>
+    <div class="row">
+      <%= yield %>
+    </div>
   </div>
 </body>
 </html>

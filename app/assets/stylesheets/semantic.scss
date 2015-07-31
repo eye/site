@@ -1,0 +1,18 @@
+.ui.secondary.vertical.pointing.menu .item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px #eee solid;
+
+  &:first-child {
+    border-bottom-color: #eee;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.ui.items > .item {
+  background-color: #FEFEFE;
+  padding-left: 10px;
+}

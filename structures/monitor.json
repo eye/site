@@ -1,0 +1,16 @@
+{
+  "id": 1,
+  "type": "http.ping",
+  "status": "OK",
+  "status_message": "All is well in the world",
+  "active": true,
+  "deleted": false,
+  "metadata": {},
+  "created_at": null,
+  "updated_at": null,
+  "created_by": null,
+  "last_updated_by": null,
+  "__indexes": [
+    "type", "active", "deleted", "created_by"
+  ]
+}
