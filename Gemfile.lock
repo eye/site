@@ -84,6 +84,8 @@ GEM
       railties (~> 4.0)
     erubis (2.7.0)
     execjs (2.5.2)
+    faker (1.4.3)
+      i18n (~> 0.5)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     globalid (0.3.5)
@@ -229,6 +231,7 @@ DEPENDENCIES
   coveralls
   devise
   dotenv-rails
+  faker
   jbuilder (~> 2.0)
   jquery-rails
   net-ping

@@ -1,0 +1,40 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+<%
+  n = 20
+  _status = [:ok, :fail, :warn]
+  _active = [true, true, false]
+  _deleted = [true, false, false, false]
+  _frequency = [60, 120, 300, 600, 1800, 3600]
+%>
+<% 1.upto(n) do |i| %>
+<%
+  # Per-fixture value generation
+  status = _status.sample
+  active = _active.sample
+  deleted = _deleted.sample
+  frequency = _frequency.sample
+  name = Faker::Company.bs
+
+  case status
+  when :ok
+    status_message = "All is well in the univese"
+  when :warn
+    status_message = "Something might need a closer look"
+  when :fail
+    status_message = "Something definitely broke :'("
+  end
+%>
+eye_<%= i %>:
+  id: <%= i %>
+  name: <%= name %>
+  klass: http.ping
+  status: <%= status %>
+  status_message: <%= status_message %>
+  active: <%= active %>
+  deleted: <%= deleted %>
+  frequency: <%= frequency %>
+  metadata: '{"host": "127.0.0.1"}'
+  created_by: 1
+  updated_by: 1
+<% end %>
