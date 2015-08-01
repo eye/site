@@ -2,23 +2,23 @@
   <div class="four wide column">
     <div class="ui large secondary vertical fluid pointing menu">
       <a class="active item">
-        My Monitors
+        My Eyes
+        <div class="ui label"><%= @eyes.length %></div>
+      </a>
+      <a class="item">
+        My Eyes
         <div class="ui label">32</div>
       </a>
       <a class="item">
-        My Monitors
+        My Eyes
         <div class="ui label">32</div>
       </a>
       <a class="item">
-        My Monitors
+        My Eyes
         <div class="ui label">32</div>
       </a>
       <a class="item">
-        My Monitors
-        <div class="ui label">32</div>
-      </a>
-      <a class="item">
-        My Monitors
+        My Eyes
         <div class="ui label">32</div>
       </a>
     </div>
@@ -28,80 +28,47 @@
     <h2 class="ui header">
       <%= semantic_icon('heartbeat') %>
       <div class="content">
-        My Monitors
+        My Eyes
       </div>
     </h2>
     <div class="ui link items">
 
-      <div class="item">
-        <div class="ui tiny image">
-          <%= image_tag "eye-128x128.png" %>
-        </div>
-        <div class="middle aligned content">
-          <div class="header">
-            Monitor Name Here
+      <% @eyes.each do |eye| %>
+        <div class="item">
+          <div class="ui tiny image">
+            <%= image_tag "eye-128x128.png" %>
           </div>
-          <div class="description">
-            <p>Monitor Description Here</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="ui tiny image">
-          <%= image_tag "eye-128x128.png" %>
-        </div>
-        <div class="middle aligned content">
-          <div class="header">
-            Monitor Name Here
-          </div>
-          <div class="description">
-            <p>Monitor Description Here</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="ui tiny image">
-          <%= image_tag "eye-128x128.png" %>
-        </div>
-        <div class="middle aligned content">
-          <div class="header">
-            Monitor Name Here
-          </div>
-          <div class="description">
-            <p>Monitor Description Here</p>
+          <div class="middle aligned content">
+            <div class="header">
+              <%= eye.name %>
+            </div>
+            <div class="description">
+              <p>
+                <div class="ui label">
+                  Type <div class="detail"><%= eye.klass %></div>
+                </div>
+                <div class="ui label">
+                  Status <div class="detail"><%= eye.status %></div>
+                </div>
+                <div class="ui label">
+                  Status Message <div class="detail"><%= eye.status_message %></div>
+                </div>
+              </p>
+              <p>
+                <div class="ui label">
+                  Active <div class="detail"><%= eye.active %></div>
+                </div>
+                <div class="ui label">
+                  Deleted <div class="detail"><%= eye.deleted %></div>
+                </div>
+                <div class="ui label">
+                  Frequency <div class="detail"><%= eye.frequency %></div>
+                </div>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="item">
-        <div class="ui tiny image">
-          <%= image_tag "eye-128x128.png" %>
-        </div>
-        <div class="middle aligned content">
-          <div class="header">
-            Monitor Name Here
-          </div>
-          <div class="description">
-            <p>Monitor Description Here</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="ui tiny image">
-          <%= image_tag "eye-128x128.png" %>
-        </div>
-        <div class="middle aligned content">
-          <div class="header">
-            Monitor Name Here
-          </div>
-          <div class="description">
-            <p>Monitor Description Here</p>
-          </div>
-        </div>
-      </div>
+      <% end %>
 
     </div>
   </div>
