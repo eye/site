@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150729085130) do
+ActiveRecord::Schema.define(version: 20150801011939) do
+
+  create_table "eyes", force: :cascade do |t|
+    t.string   "klass"
+    t.string   "status"
+    t.string   "status_message"
+    t.boolean  "active"
+    t.boolean  "deleted"
+    t.text     "metadata"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "frequency"
+    t.string   "name"
+  end
+
+  add_index "eyes", ["active"], name: "index_eyes_on_active"
+  add_index "eyes", ["created_by"], name: "index_eyes_on_created_by"
+  add_index "eyes", ["deleted"], name: "index_eyes_on_deleted"
+  add_index "eyes", ["klass"], name: "index_eyes_on_klass"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
